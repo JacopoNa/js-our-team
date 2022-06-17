@@ -44,3 +44,44 @@ const teamMembers = [
 ];
 
 console.log(teamMembers)
+
+// CARD DI ESEMPIO DA STAMPARE
+{/* <div class="team-card">
+    <div class="card-image">
+        <img
+            src="img/wayne-barnett-founder-ceo.jpg"
+            alt="Wayne Barnett"
+        />
+    </div>
+    <div class="card-text">
+        <h3>Wayne Barnett</h3>
+        <p>Founder & CEO</p>
+    </div>
+</div> */}
+
+// seleziono il container a cui andrò a concatenare le card
+const teamContainer = document.querySelector('.team-container');
+
+// scorro tutto l'array e seleziono ogni membro singolarmente
+for (let i = 0; i < teamMembers.length; i++) {
+    let singleMember = teamMembers[i];
+
+    // creo template
+    const newcards = `
+    <div class="team-card">
+        <div class="card-image">
+            <img
+                src="${singleMember.Image}"
+                alt="${singleMember.name}"
+            />
+        </div>
+        <div class="card-text">
+            <h3>${singleMember.name}</h3>
+            <p>${singleMember.role}</p>
+        </div>
+    </div>
+    `;
+
+    // concateno il template al contenitore
+    teamContainer.innerHTML += newcards;
+}
